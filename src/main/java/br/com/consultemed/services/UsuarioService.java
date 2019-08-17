@@ -22,4 +22,13 @@ public class UsuarioService {
 	public List<Usuario> listaUsuarios(){
 		return this.dao.listaUsuarios();
 	}
+	
+	public void salvarUsuario(Usuario usuario) {
+		this.dao.salvarUsuario(usuario);
+	}
+	
+	public void deletarUsuario(Long id) throws Exception {
+		this.dao.deleteById(id);
+	}
+	
 }
