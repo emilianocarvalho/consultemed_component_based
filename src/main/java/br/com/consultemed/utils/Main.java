@@ -15,7 +15,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		List<Usuario> usuarios = service.listaUsuarios();
+		List<Usuario> usuarios = service.listaUsuario();
 		System.out.println(usuarios.size());
 	}
 

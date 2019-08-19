@@ -62,7 +62,7 @@ public class UsuarioController {
 	}
 	
 	public List<Usuario> listaUsuarios(){
-		this.usuarios = this.service.listaUsuarios();
+		this.usuarios = this.service.listaUsuario();
 		return usuarios;
 	}
 	

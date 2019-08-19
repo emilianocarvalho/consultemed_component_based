@@ -6,6 +6,7 @@ package br.com.consultemed.models;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -58,4 +59,36 @@ public class Paciente implements Serializable{
 	@Column(name = "TELEFONE")
 	private String telefone;
 	
+//	@Embedded
+//	private Endereco endereco;	
+
+	@Getter
+	@Setter
+	@Column(name = "LOGRADOURO")	
+	private String logradouro;
+
+	@Getter
+	@Setter
+	@Column(name = "NUMERO")
+	private int numero;
+
+	@Getter
+	@Setter
+	@Column(name = "BAIRRO")
+	private String bairro;
+
+	@Getter
+	@Setter
+	@Column(name = "CEP")
+	private String cep;
+
+	@Getter
+	@Setter
+	@Column(name = "CIDADE")
+	private String cidade;
+
+	@Getter
+	@Setter
+	@Column(name = "UF")
+	private String uf;	
 }

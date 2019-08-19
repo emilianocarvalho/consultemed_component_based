@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import br.com.consultemed.models.Paciente;
 import br.com.consultemed.models.Usuario;
 import br.com.consultemed.repository.repositories.UsuarioRepository;
 
@@ -19,10 +20,10 @@ public class UsuarioService {
 	@Inject
 	private UsuarioRepository dao;
 	
-	public List<Usuario> listaUsuarios(){
+	public List<Usuario> listaUsuario(){
 		return this.dao.listaUsuarios();
 	}
-	
+		
 	public void salvarUsuario(Usuario usuario) {
 		this.dao.salvarUsuario(usuario);
 	}
