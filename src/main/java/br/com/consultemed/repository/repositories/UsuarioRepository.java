@@ -26,17 +26,17 @@ public class UsuarioRepository {
 	EntityManager factory = emf.createEntityManager();
 
 	public List<Usuario> listaUsuarios() {
-		Query query = this.factory.createQuery("SELECT object(u) FROM Usuario as u");
+		Query query = this.factory.createQuery("SELECT object(o) FROM Usuario as o");		
 		return query.getResultList();
 	}
 
 	public Collection<Usuario> listarUsuarios() throws Exception {
 		this.factory = emf.createEntityManager();
-		List<Usuario> contatos = new ArrayList<Usuario>();
+		List<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
 			factory.getTransaction().begin();
 			TypedQuery<Usuario> query = factory.createNamedQuery("Usuario.findAll", Usuario.class);
-			contatos = query.getResultList();
+			usuarios = query.getResultList();
 			factory.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -46,7 +46,7 @@ public class UsuarioRepository {
 			factory.close();
 		}
 
-		return contatos;
+		return usuarios;
 	}
 
 	public void salvarUsuario(Usuario usuario) {

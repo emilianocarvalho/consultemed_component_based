@@ -22,48 +22,48 @@ import lombok.Setter;
 @ManagedBean
 public class UsuarioController {
 
-	@Getter
-	@Setter
-	private List<Usuario> usuarios;
+    @Getter
+    @Setter
+    private List<Usuario> usuarios;
 
-	@Inject
-	@Getter
-	@Setter
-	private Usuario usuario;
-	
-	@Getter
-	@Setter
-	private Usuario usuarioEditar;
-	
-	@Inject
-	private UsuarioService service;
-	
-	
-	public String editar() {
-		this.usuario = this.usuarioEditar;
-		return "/pages/usuarios/addUsuarios.xhtml";
-	}
-	
-	public String excluir() throws Exception {
-		this.usuario = this.usuarioEditar;
-		this.service.deletarUsuario(this.usuario.getId());
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
-		return "/pages/usuarios/usuarios.xhtml?faces-redirect=true";
-	}
-	
-	public String novoUsuario() {
-		this.usuario = new Usuario();
-		return "/pages/usuarios/addUsuarios.xhtml?faces-redirect=true";
-	}
-	
-	public String addUsuario() {
-		this.service.salvarUsuario(this.usuario);
-		return "/pages/usuarios/usuarios.xhtml?faces-redirect=true";
-	}
-	
-	public List<Usuario> listaUsuarios(){
-		this.usuarios = this.service.listaUsuario();
-		return usuarios;
-	}
-	
+    @Inject
+    @Getter
+    @Setter
+    private Usuario usuario;
+
+    @Getter
+    @Setter
+    private Usuario usuarioEditar;
+
+    @Inject
+    private UsuarioService service;
+
+    public String editar() {
+	this.usuario = this.usuarioEditar;
+	return "/pages/usuarios/addUsuarios.xhtml";
+    }
+
+    public String excluir() throws Exception {
+	this.usuario = this.usuarioEditar;
+	this.service.deletarUsuario(this.usuario.getId());
+	FacesContext.getCurrentInstance().addMessage(null,
+		new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
+	return "/pages/usuarios/usuarios.xhtml?faces-redirect=true";
+    }
+
+    public String novoUsuario() {
+	this.usuario = new Usuario();
+	return "/pages/usuarios/addUsuarios.xhtml?faces-redirect=true";
+    }
+
+    public String addUsuario() {
+	this.service.salvarUsuario(this.usuario);
+	return "/pages/usuarios/usuarios.xhtml?faces-redirect=true";
+    }
+
+    public List<Usuario> listaUsuarios() {
+	this.usuarios = this.service.listaUsuarios();
+	return usuarios;
+    }
+
 }

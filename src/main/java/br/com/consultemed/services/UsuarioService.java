@@ -20,7 +20,7 @@ public class UsuarioService {
 	@Inject
 	private UsuarioRepository dao;
 	
-	public List<Usuario> listaUsuario(){
+	public List<Usuario> listaUsuarios(){
 		return this.dao.listaUsuarios();
 	}
 		
